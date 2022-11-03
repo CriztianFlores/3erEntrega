@@ -1,2 +1,2 @@
 # 3erEntrega
-asdfgh
+Vistas del rediseno con patron State
