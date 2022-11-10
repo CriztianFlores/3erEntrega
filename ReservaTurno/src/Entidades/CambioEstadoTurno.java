@@ -1,5 +1,7 @@
 package Entidades;
 
+import Entidades.state.Estado;
+
 import java.time.*;
 
 public class CambioEstadoTurno {

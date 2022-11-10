@@ -1,4 +1,6 @@
 package Entidades;
+import Entidades.state.Estado;
+
 import java.time.*;
 import java.util.ArrayList;
 
@@ -89,7 +91,7 @@ public class Turno {
         return false;
     }
     
-    public void registrarReserva(Estado estadoReservado, LocalDateTime fechaHoraActual){
+    public void reservarTurno(Estado estadoReservado, LocalDateTime fechaHoraActual){
         for(CambioEstadoTurno cambio: cambiosDeEstadosTurno){
             if(cambio.esActual())
                 cambio.setFechaHoraHasta(fechaHoraActual);

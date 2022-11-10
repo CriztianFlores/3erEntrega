@@ -1,5 +1,6 @@
 package Controladores;
 
+import Entidades.state.Estado;
 import Interfaces.InterfazWhatsapp;
 import Interfaces.InterfazMail;
 import BaseDatos.Datos;
@@ -263,25 +264,26 @@ public class GestorReservaTurno{
             }
         }
     }
+
+    // TODO
+//    public void tomarConfirmacionReserva(boolean checkMail, boolean checkWsp, String datosReserva){
+//        Estado estadoReservado = obtenerReservado();
+//        registrarReserva(turnoSeleccionado,estadoReservado);
+//        generarNotificaciones(checkMail,checkWsp, datosReserva);
+//        finCasoDeUso();
+//    }
     
-    public void tomarConfirmacionReserva(boolean checkMail, boolean checkWsp, String datosReserva){
-        Estado estadoReservado = obtenerReservado();
-        registrarReserva(turnoSeleccionado,estadoReservado);
-        generarNotificaciones(checkMail,checkWsp, datosReserva);
-        finCasoDeUso();
-    }
-    
-    public Estado obtenerReservado(){
-        for(Estado estado: datos.estados()){
-            if(estado.esAmbitoTurno() && estado.esReservado())
-                return estado;
-        }
-        return null;
-    }
+//    public Estado obtenerReservado(){
+//        for(Estado estado: datos.estados()){
+//            if(estado.esAmbitoTurno() && estado.esReservado())
+//                return estado;
+//        }
+//        return null;
+//    }
     
     public void registrarReserva(Turno turnoSeleccionado,Estado estadoReservado){
         LocalDateTime fechaHoraActual = obtenerFechaHoraActual();
-        turnoSeleccionado.registrarReserva(estadoReservado, fechaHoraActual);
+        turnoSeleccionado.reservarTurno(estadoReservado, fechaHoraActual);
     }
     
     public void generarNotificaciones(boolean checkMail, boolean checkWsp, String datosReserva){
